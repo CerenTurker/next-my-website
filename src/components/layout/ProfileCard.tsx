@@ -64,7 +64,7 @@ export function ProfileCard() {
 
           <div>
             <BriefcaseBusiness size={16} />
-            <span>3+ years of experience</span>
+            <span>5+ years of experience</span>
           </div>
         </div>
 

@@ -28,7 +28,7 @@ export const portfolio = {
 ],
 
   stats: [
-    { value: "3+", label: "Years of professional experience" },
+    { value: "5+", label: "Years of professional experience" },
     { value: "3", label: "Professional software roles" },
     { value: "10+", label: "Backend technologies and tools" },
   ],
