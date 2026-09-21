@@ -2,12 +2,18 @@ import {
   ArrowUpRight,
   BriefcaseBusiness,
   Check,
+  Gamepad2,
   Globe2,
+  type LucideIcon,
 } from "lucide-react";
 
 import { portfolio } from "@/data/portfolio";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+
+const featuredProjectIcons: Record<string, LucideIcon> = {
+  "Personal Project": Gamepad2,
+};
 
 export function ProjectsSection() {
   const featuredProjects = portfolio.projects.filter(
@@ -32,45 +38,63 @@ export function ProjectsSection() {
       </Reveal>
 
       <div className="featured-projects">
-        {featuredProjects.map((project, index) => (
-          <Reveal
-            key={project.title}
-            delay={index * 0.08}
-          >
-            <article className="featured-project glass-panel">
-              <header className="featured-project__header">
-                <div className="featured-project__icon">
-                  <BriefcaseBusiness size={22} />
+        {featuredProjects.map((project, index) => {
+          const Icon =
+            featuredProjectIcons[project.category] ??
+            BriefcaseBusiness;
+
+          return (
+            <Reveal
+              key={project.title}
+              delay={index * 0.08}
+            >
+              <article className="featured-project glass-panel">
+                <header className="featured-project__header">
+                  <div className="featured-project__icon">
+                    <Icon size={22} />
+                  </div>
+
+                  <span>{project.category}</span>
+                </header>
+
+                <h3>{project.title}</h3>
+
+                <p className="featured-project__description">
+                  {project.description}
+                </p>
+
+                <ul className="featured-project__highlights">
+                  {project.highlights.map((highlight) => (
+                    <li key={highlight}>
+                      <Check size={14} />
+                      {highlight}
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="featured-project__technologies">
+                  {project.technologies.map((technology) => (
+                    <span key={technology}>
+                      {technology}
+                    </span>
+                  ))}
                 </div>
 
-                <span>{project.category}</span>
-              </header>
-
-              <h3>{project.title}</h3>
-
-              <p className="featured-project__description">
-                {project.description}
-              </p>
-
-              <ul className="featured-project__highlights">
-                {project.highlights.map((highlight) => (
-                  <li key={highlight}>
-                    <Check size={14} />
-                    {highlight}
-                  </li>
-                ))}
-              </ul>
-
-              <div className="featured-project__technologies">
-                {project.technologies.map((technology) => (
-                  <span key={technology}>
-                    {technology}
-                  </span>
-                ))}
-              </div>
-            </article>
-          </Reveal>
-        ))}
+                {project.href ? (
+                  <a
+                    className="featured-project__link"
+                    href={project.href}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Visit {project.title}
+                    <ArrowUpRight size={16} />
+                  </a>
+                ) : null}
+              </article>
+            </Reveal>
+          );
+        })}
       </div>
 
       <Reveal className="projects-subheading">

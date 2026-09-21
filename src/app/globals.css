@@ -1411,6 +1411,31 @@ textarea {
   font-weight: 700;
 }
 
+.featured-project__link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 26px;
+  padding: 11px 16px;
+  border: 1px solid rgba(109, 140, 255, 0.35);
+  border-radius: 999px;
+  color: var(--primary-light);
+  background: rgba(109, 140, 255, 0.08);
+  font-size: 12px;
+  font-weight: 700;
+  transition:
+    color 170ms ease,
+    border-color 170ms ease,
+    transform 170ms ease;
+}
+
+.featured-project__link:hover {
+  color: white;
+  border-color: rgba(109, 140, 255, 0.6);
+  transform: translateY(-2px);
+}
+
 .projects-subheading {
   display: grid;
   grid-template-columns: 1fr 1fr;

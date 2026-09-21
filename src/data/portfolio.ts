@@ -200,6 +200,24 @@ export const portfolio = {
     featured: true,
   },
   {
+    title: "Oyun Çarkı",
+    category: "Personal Project",
+    description:
+      "A free party games platform in Turkish for friends, couples and families. Games run directly in the browser on phone, tablet or desktop, with customizable question and task lists and online multiplayer support.",
+    technologies: [
+      "Next.js",
+      "React",
+      "Vercel",
+    ],
+    highlights: [
+      "Free to play, no download or sign-up required",
+      "Works across phone, tablet and desktop",
+      "Online multiplayer and customizable game content",
+    ],
+    href: "https://www.oyuncarki.com/",
+    featured: true,
+  },
+  {
     title: "Akl Law",
     category: "Freelance Website",
     description:
